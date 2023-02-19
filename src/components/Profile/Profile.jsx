@@ -1,36 +1,48 @@
 import PropTypes from 'prop-types';
+import {
+  Container,
+  UserCard,
+  Avatar,
+  UserName,
+  UserTag,
+  UserLocation,
+  StatList,
+  StatListItem,
+  StatType,
+  StatValue
+} from './Profile.styled'
 
 // console.log(PropTypes);
 
 export function Profile({ user: { username, tag, location, avatar, stats } }) { 
-  return (<div className="profile">
-  <div className="description">
-    <img
-      src={avatar}
-      alt={username}
-      className="avatar"
-      width="240px"
-    />
-    <p className="name">{username}</p>
-    <p className="tag">@№{tag}</p>
-    <p className="location">{location}</p>
-  </div>
+  return (
+  <Container>
+    <UserCard>
+      <Avatar
+        src={avatar}
+        alt={username}
+        width="240px"
+      />
+      <UserName>{username}</UserName>
+      <UserTag>@{tag}</UserTag>
+      <UserLocation>{location}</UserLocation>
+    </UserCard>
 
-  <ul className="stats">
-    <li>
-      <span className="label">Followers</span>
-      <span className="quantity">{stats.followers}</span>
-    </li>
-    <li>
-      <span className="label">Views</span>
-      <span className="quantity">{stats.views}</span>
-    </li>
-    <li>
-      <span className="label">Likes</span>
-      <span className="quantity">{stats.likes}</span>
-    </li>
-  </ul>
-</div>)
+    <StatList>
+      <StatListItem>
+        <StatType>Followers</StatType>
+        <StatValue>{stats.followers}</StatValue>
+      </StatListItem>
+      <StatListItem>
+        <StatType>Views</StatType>
+        <StatValue>{stats.views}</StatValue>
+      </StatListItem>
+    <StatListItem>
+        <StatType>Likes</StatType>
+        <StatValue>{stats.likes}</StatValue>
+      </StatListItem>
+    </StatList>
+  </Container>)
 }
 
 
