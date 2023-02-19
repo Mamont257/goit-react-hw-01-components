@@ -12,7 +12,7 @@ export function Profile({ user: { username, tag, location, avatar, stats } }) {
       width="240px"
     />
     <p className="name">{username}</p>
-    <p className="tag">@{tag}</p>
+    <p className="tag">@№{tag}</p>
     <p className="location">{location}</p>
   </div>
 
